@@ -1,133 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dr. Saeed Tarabieh</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #e3f2fd;
-      color: #222;
-      position: relative;
-      padding-top: 60px;
-    }
-    nav {
-      background: #007bff;
-      padding: 10px 20px;
-      display: flex;
-      gap: 15px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    nav button {
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-      padding: 8px 16px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav button:hover, nav button.active {
-      background: white;
-      color: #007bff;
-    }
-    .container { max-width: 900px; margin: 40px auto 40px 40px; padding: 0 20px; display: flex; gap: 30px; }
-    .info { flex: 1; }
-    h1 { margin-top: 0; font-size: 2.8rem; margin-bottom: 0.3em; }
-    p { font-size: 1.1rem; line-height: 1.5; margin-bottom: 1em; }
-    ul { padding-left: 20px; }
-    .photo { position: fixed; top: 70px; right: 20px; width: 120px; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-    .support-section, .ticket-section { display: none; }
-    .active-section { display: block; }
-    form { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 600px; }
-    form label { display: block; margin: 12px 0 6px; font-weight: bold; }
-    form input, form textarea { width: 100%; padding: 8px; font-size: 1rem; border-radius: 5px; border: 1px solid #ccc; resize: vertical; }
-    form button { margin-top: 15px; background: #007bff; border: none; color: white; padding: 10px 18px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
-    form button:hover { background: #0056b3; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dr. Saeed Tarabieh</title>
+<style>
+body {font-family: Arial, sans-serif;margin:0;background:#e3f2fd;color:#222;padding-top:60px;}
+nav {background:#007bff;padding:10px 20px;display:flex;gap:15px;position:fixed;top:0;width:100%;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.2);}
+nav button {background:transparent;border:2px solid white;color:white;padding:8px 16px;font-weight:bold;border-radius:5px;cursor:pointer;transition:background 0.3s,color 0.3s;}
+nav button:hover,nav button.active {background:white;color:#007bff;}
+.container {max-width:900px;margin:40px auto 40px 40px;padding:0 20px;display:flex;gap:30px;}
+.info {flex:1;}
+h1 {margin-top:0;font-size:2.8rem;margin-bottom:0.3em;}
+p {font-size:1.1rem;line-height:1.5;margin-bottom:1em;}
+ul {padding-left:20px;}
+.photo {position:fixed;top:70px;right:20px;width:120px;height:auto;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.15);}
+.support-section,.ticket-section {display:none;}
+.active-section {display:block;}
+form {background:white;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);max-width:600px;}
+form label {display:block;margin:12px 0 6px;font-weight:bold;}
+form input,form textarea {width:100%;padding:8px;font-size:1rem;border-radius:5px;border:1px solid #ccc;resize:vertical;}
+form button {margin-top:15px;background:#007bff;border:none;color:white;padding:10px 18px;font-weight:bold;border-radius:5px;cursor:pointer;transition:background 0.3s;}
+form button:hover {background:#0056b3;}
+</style>
 </head>
 <body>
-
-  <nav>
-    <button id="btnHome" class="active">Home</button>
-    <button id="btnSupport">Support</button>
-    <button id="btnTicket">Make Ticket</button>
-  </nav>
-
-  <div class="container">
-    <div class="info">
-      <div id="homeSection" class="active-section">
-        <h1>Dr. Saeed Tarabieh</h1>
-        <p><strong>Profession:</strong> Digital Marketing</p>
-        <p><strong>About:</strong> Dr. Saeed Tarabieh is an experienced professional with expertise in Doctor of Philosophy in Communication and Cultural Industries (PhD), specializing in Social Media Marketing.</p>
-        <p><strong>Contact:</strong></p>
-        <ul>
-          <li>Email: tarabieh@mutah.edu.jo</li>
-        </ul>
-      </div>
-
-      <div id="supportSection" class="support-section">
-        <h2>Support</h2>
-        <p>If you have questions or need assistance, please contact Dr. Saeed at <a href="mailto:tarabieh@mutah.edu.jo">tarabieh@mutah.edu.jo</a>.</p>
-      </div>
-
-      <div id="ticketSection" class="ticket-section">
-        <h2>Make a Support Ticket</h2>
-        <form id="ticketForm" action="mailto:tarabieh@mutah.edu.jo" method="post" enctype="text/plain" onsubmit="return validateForm()">
-          <label for="name">Your Name:</label>
-          <input type="text" id="name" name="Name" required />
-          <label for="email">Your Email:</label>
-          <input type="email" id="email" name="Email" required />
-          <label for="message">Message:</label>
-          <textarea id="message" name="Message" rows="5" required></textarea>
-          <button type="submit">Send Ticket</button>
-        </form>
-      </div>
-    </div>
-
-    <img src="saeed.jpg" alt="Dr. Saeed Tarabieh" class="photo" />
-  </div>
-
-  <script>
-    const btnHome = document.getElementById('btnHome');
-    const btnSupport = document.getElementById('btnSupport');
-    const btnTicket = document.getElementById('btnTicket');
-
-    const homeSection = document.getElementById('homeSection');
-    const supportSection = document.getElementById('supportSection');
-    const ticketSection = document.getElementById('ticketSection');
-
-    function clearActive() {
-      btnHome.classList.remove('active');
-      btnSupport.classList.remove('active');
-      btnTicket.classList.remove('active');
-
-      homeSection.classList.remove('active-section');
-      supportSection.classList.remove('active-section');
-      ticketSection.classList.remove('active-section');
-    }
-
-    btnHome.onclick = () => { clearActive(); btnHome.classList.add('active'); homeSection.classList.add('active-section'); };
-    btnSupport.onclick = () => { clearActive(); btnSupport.classList.add('active'); supportSection.classList.add('active-section'); };
-    btnTicket.onclick = () => { clearActive(); btnTicket.classList.add('active'); ticketSection.classList.add('active-section'); };
-
-    function validateForm() {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if (!name || !email || !message) { alert('Please fill all fields.'); return false; }
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) { alert('Please enter a valid email address.'); return false; }
-      alert('Your ticket form will open in your email client.');
-      return true;
-    }
-  </script>
+<nav>
+<button id="btnHome" class="active">Home</button>
+<button id="btnSupport">Support</button>
+<button id="btnTicket">Make Ticket</button>
+</nav>
+<div class="container">
+<div class="info">
+<div id="homeSection" class="active-section">
+<h1>Dr. Saeed Tarabieh</h1>
+<p><strong>Profession:</strong> Digital Marketing</p>
+<p><strong>About:</strong> Dr. Saeed Tarabieh is an experienced professional with expertise in Doctor of Philosophy in Communication and Cultural Industries (PhD), specializing in Social Media Marketing.</p>
+<p><strong>Contact:</strong></p>
+<ul>
+<li>Email: tarabieh@mutah.edu.jo</li>
+</ul>
+</div>
+<div id="supportSection" class="support-section">
+<h2>Support</h2>
+<p>If you have questions or need assistance, please contact Dr. Saeed at <a href="mailto:tarabieh@mutah.edu.jo">tarabieh@mutah.edu.jo</a>.</p>
+</div>
+<div id="ticketSection" class="ticket-section">
+<h2>Make a Support Ticket</h2>
+<form id="ticketForm" action="mailto:tarabieh@mutah.edu.jo" method="post" enctype="text/plain" onsubmit="return validateForm()">
+<label for="name">Your Name:</label>
+<input type="text" id="name" name="Name" required />
+<label for="email">Your Email:</label>
+<input type="email" id="email" name="Email" required />
+<label for="message">Message:</label>
+<textarea id="message" name="Message" rows="5" required></textarea>
+<button type="submit">Send Ticket</button>
+</form>
+</div>
+</div>
+<img src="saeed.jpg" alt="Dr. Saeed Tarabieh" class="photo" />
+</div>
+<script>
+const btnHome=document.getElementById('btnHome');
+const btnSupport=document.getElementById('btnSupport');
+const btnTicket=document.getElementById('btnTicket');
+const homeSection=document.getElementById('homeSection');
+const supportSection=document.getElementById('supportSection');
+const ticketSection=document.getElementById('ticketSection');
+function clearActive(){btnHome.classList.remove('active');btnSupport.classList.remove('active');btnTicket.classList.remove('active');homeSection.classList.remove('active-section');supportSection.classList.remove('active-section');ticketSection.classList.remove('active-section');}
+btnHome.onclick=()=>{clearActive();btnHome.classList.add('active');homeSection.classList.add('active-section');};
+btnSupport.onclick=()=>{clearActive();btnSupport.classList.add('active');supportSection.classList.add('active-section');};
+btnTicket.onclick=()=>{clearActive();btnTicket.classList.add('active');ticketSection.classList.add('active-section');};
+function validateForm(){const n=document.getElementById('name').value.trim();const e=document.getElementById('email').value.trim();const m=document.getElementById('message').value.trim();if(!n||!e||!m){alert('Please fill all fields.');return false;}const p=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!p.test(e)){alert('Please enter a valid email address.');return false;}alert('Your ticket form will open in your email client.');return true;}
+</script>
 </body>
 </html>
