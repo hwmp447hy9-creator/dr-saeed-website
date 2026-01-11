@@ -51,73 +51,51 @@
     form input, form textarea { width: 100%; padding: 8px; font-size: 1rem; border-radius: 5px; border: 1px solid #ccc; resize: vertical; }
     form button { margin-top: 15px; background: #007bff; border: none; color: white; padding: 10px 18px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
     form button:hover { background: #0056b3; }
-    .no-access { text-align: center; margin-top: 100px; font-size: 1.5rem; color: #555; }
   </style>
 </head>
 <body>
 
-  <div id="noAccess" class="no-access" style="display:none;">
-    ❌ You don’t have access. Please contact Dr. Saeed for a link.
-  </div>
+  <nav>
+    <button id="btnHome" class="active">Home</button>
+    <button id="btnSupport">Support</button>
+    <button id="btnTicket">Make Ticket</button>
+  </nav>
 
-  <div id="websiteContent" style="display:none;">
-    <nav>
-      <button id="btnHome" class="active">Home</button>
-      <button id="btnSupport">Support</button>
-      <button id="btnTicket">Make Ticket</button>
-    </nav>
-
-    <div class="container">
-      <div class="info">
-        <!-- Home Section -->
-        <div id="homeSection" class="active-section">
-          <h1>Dr. Saeed Tarabieh</h1>
-          <p><strong>Profession:</strong> Digital Marketing</p>
-          <p><strong>About:</strong> Dr. Saeed Tarabieh is an experienced professional with expertise in [Doctor of Philosophy in Communication and Cultural Industries (PhD) Specialization: Social Media Marketing].</p>
-          <p><strong>Contact:</strong></p>
-          <ul>
-            <li>Email: tarabieh@mutah.edu.jo</li>
-          </ul>
-        </div>
-
-        <!-- Support Section -->
-        <div id="supportSection" class="support-section">
-          <h2>Support</h2>
-          <p>If you have questions or need assistance, please contact Dr. Saeed at <a href="mailto:tarabieh@mutah.edu.jo">tarabieh@mutah.edu.jo</a>.</p>
-        </div>
-
-        <!-- Ticket Section -->
-        <div id="ticketSection" class="ticket-section">
-          <h2>Make a Support Ticket</h2>
-          <form id="ticketForm" action="mailto:tarabieh@mutah.edu.jo" method="post" enctype="text/plain" onsubmit="return validateForm()">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="Name" required />
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="Email" required />
-            <label for="message">Message:</label>
-            <textarea id="message" name="Message" rows="5" required></textarea>
-            <button type="submit">Send Ticket</button>
-          </form>
-        </div>
+  <div class="container">
+    <div class="info">
+      <div id="homeSection" class="active-section">
+        <h1>Dr. Saeed Tarabieh</h1>
+        <p><strong>Profession:</strong> Digital Marketing</p>
+        <p><strong>About:</strong> Dr. Saeed Tarabieh is an experienced professional with expertise in Doctor of Philosophy in Communication and Cultural Industries (PhD), specializing in Social Media Marketing.</p>
+        <p><strong>Contact:</strong></p>
+        <ul>
+          <li>Email: tarabieh@mutah.edu.jo</li>
+        </ul>
       </div>
 
-      <img src="saeed.jpg" alt="Dr. Saeed Tarabieh" class="photo" />
+      <div id="supportSection" class="support-section">
+        <h2>Support</h2>
+        <p>If you have questions or need assistance, please contact Dr. Saeed at <a href="mailto:tarabieh@mutah.edu.jo">tarabieh@mutah.edu.jo</a>.</p>
+      </div>
+
+      <div id="ticketSection" class="ticket-section">
+        <h2>Make a Support Ticket</h2>
+        <form id="ticketForm" action="mailto:tarabieh@mutah.edu.jo" method="post" enctype="text/plain" onsubmit="return validateForm()">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="Name" required />
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="Email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="Message" rows="5" required></textarea>
+          <button type="submit">Send Ticket</button>
+        </form>
+      </div>
     </div>
+
+    <img src="saeed.jpg" alt="Dr. Saeed Tarabieh" class="photo" />
   </div>
 
   <script>
-    // ----- Access Control -----
-    const SECRET_KEY = "ACCESS2026"; // change to your secret
-    const urlParams = new URLSearchParams(window.location.search);
-    const key = urlParams.get('key');
-
-    if (key === SECRET_KEY) {
-      document.getElementById('websiteContent').style.display = 'block';
-    } else {
-      document.getElementById('noAccess').style.display = 'block';
-    }
-
-    // ----- Navigation -----
     const btnHome = document.getElementById('btnHome');
     const btnSupport = document.getElementById('btnSupport');
     const btnTicket = document.getElementById('btnTicket');
@@ -136,11 +114,9 @@
       ticketSection.classList.remove('active-section');
     }
 
-    if (key === SECRET_KEY) {
-      btnHome.onclick = () => { clearActive(); btnHome.classList.add('active'); homeSection.classList.add('active-section'); };
-      btnSupport.onclick = () => { clearActive(); btnSupport.classList.add('active'); supportSection.classList.add('active-section'); };
-      btnTicket.onclick = () => { clearActive(); btnTicket.classList.add('active'); ticketSection.classList.add('active-section'); };
-    }
+    btnHome.onclick = () => { clearActive(); btnHome.classList.add('active'); homeSection.classList.add('active-section'); };
+    btnSupport.onclick = () => { clearActive(); btnSupport.classList.add('active'); supportSection.classList.add('active-section'); };
+    btnTicket.onclick = () => { clearActive(); btnTicket.classList.add('active'); ticketSection.classList.add('active-section'); };
 
     function validateForm() {
       const name = document.getElementById('name').value.trim();
